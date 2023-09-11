@@ -1,5 +1,5 @@
 """
-URL configuration for boredapi_project project.
+URL configuration for projectname project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -17,12 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from boredapi_app.views import ActivityViewSet
+from appname.views import MyModelViewSet
 
 router = DefaultRouter()
-router.register(r'activities', ActivityViewSet)
+router.register(r'mymodel', MyModelViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
 ]
