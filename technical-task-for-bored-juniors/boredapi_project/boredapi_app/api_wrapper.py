@@ -4,7 +4,6 @@ class BoredAPIWrapper:
     API_URL = 'https://www.boredapi.com/api/activity'
 
     def fetch_activity(self, activity_type=None, participants=None, price_min=None, price_max=None, accessibility_min=None, accessibility_max=None):
-        # Build the request URL with query parameters based on filters
         params = {
             'type': activity_type,
             'participants': participants,

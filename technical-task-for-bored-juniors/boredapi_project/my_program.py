@@ -50,7 +50,7 @@ def main():
 
     elif args.command == "list":
         # List saved activities
-        num_activities = 5  # Default to listing the latest 5 activities
+        num_activities = 3  # Default to listing the latest 3 activities
 
         db_manager = ActivityDatabaseManager()
         latest_activities = db_manager.get_latest_activities(num_activities)

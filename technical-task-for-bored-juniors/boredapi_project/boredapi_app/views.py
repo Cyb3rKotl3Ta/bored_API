@@ -36,7 +36,6 @@ class ActivityViewSet(viewsets.ModelViewSet):
         min_accessibility = request.query_params.get('min_accessibility')
         max_accessibility = request.query_params.get('max_accessibility')
 
-        # Apply filters if parameters are provided
         
         # if id:
         #     queryset = queryset.filter(activity.data['id']=activity_type)
@@ -49,9 +48,9 @@ class ActivityViewSet(viewsets.ModelViewSet):
         if max_price is not None:
             queryset = queryset.filter(price__lte=max_price)
         if min_accessibility is not None:
-            queryset = queryset.filter(accessibility__gte=min_accessibility)  # Use 'accessibility' field here
+            queryset = queryset.filter(accessibility__gte=min_accessibility) 
         if max_accessibility is not None:
-            queryset = queryset.filter(accessibility__lte=max_accessibility)  # Use 'accessibility' field here
+            queryset = queryset.filter(accessibility__lte=max_accessibility) 
 
         serializer = ActivitySerializer(queryset, many=True)
         return Response(serializer.data)
@@ -61,7 +60,7 @@ class ActivityViewSet(viewsets.ModelViewSet):
         """
         Retrieve the latest activities saved in the database.
         """
-        num_activities = request.query_params.get('num_activities', 5)  # Default to 5 if not provided
+        num_activities = request.query_params.get('num_activities', 3)  # Default to 3 if not provided
         try:
             num_activities = int(num_activities)
         except ValueError:
